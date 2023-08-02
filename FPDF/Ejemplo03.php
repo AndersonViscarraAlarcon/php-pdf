@@ -41,23 +41,14 @@
             $this->Cell(25,10,'GENERO',1);
             $this->Cell(38,10,'MATERIA',1);
             $this->Cell(15,10,'TEMA',1);
-            $this->Cell(40,10,'NOMBRE DE QUIEN ASESORA',1);
-            $this->Ln(20);
-        }
-        //Creo el Pie de Pagina
-        function Footer(){
-            //Logo (Directorio-X-Y-)
-            $this->Image('img/footer.png',0,286,210);
-            //Posicion
-            $this->SetY(-20);
-            //Letra
-            $this->SetFont('Arial','I',8);
-            //Numero de Pagina
-            $this->Cell(0,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
+            $this->Cell(40,10,'NOMBRE DE QUIEN ASESORA',1,'L');
+            $this->Ln(0);
         }
     }
     $pdf = new PDF('L');
     $pdf->AliasNbPages();
     $pdf->AddPage();
+    for($i=1; $i<=40;$i++)
+        $pdf->Cell(22,10,$i,1).$pdf->Cell(28,10,date('d-m-Y'),1).$pdf->Cell(50,10,utf8_decode('Anderson Adrian Viscarra Alarcón'),1).$pdf->Cell(20,10,utf8_decode('020228665-4'),1).$pdf->Cell(25,10,utf8_decode('+593967196198'),1).$pdf->Cell(15,10,'Mestizo',1).$pdf->Cell(25,10,'Masculino',1).$pdf->Cell(38,10,utf8_decode('Civil-Inquilinato'),1).$pdf->Cell(15,10,'TEMA',1).$pdf->Cell(40,10,utf8_decode('Edgar David Mera Gonzales'),1,'L').$pdf->Ln(0);
     $pdf->Output();
 ?>
